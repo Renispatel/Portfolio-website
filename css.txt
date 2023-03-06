@@ -1,0 +1,447 @@
+:root {
+  --clr-accent--: rgb(255, 255, 255);
+  --clr-main--: rgb(245, 238, 230);
+  --clr-accent-lite--: rgb(243, 219, 199);
+  --fs-50--: 1rem;
+  --fs-100--: 1.125rem;
+  --fs-200--: 1.5rem;
+  --fs-300--: 3rem;
+  --fs-500--: 5rem;
+  --ff-migra--: Migra, sanse-serif;
+  --ff-neue--: Verdana, Geneva, Tahoma, sans-serif;
+  --ff-tusker--: Arial, sans-serif;
+}
+
+/* *, */
+/* *::before, */
+/* *::after { */
+/* box-sizing: border-box; */
+/* color: red; */
+/* } */
+
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+/* 
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+} */
+
+/* Set core body defaults */
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  /* overflow: hidden; */
+  background-color: black;
+
+  /* overflow-y: hidden; */
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+#app {
+  width: 100%;
+  /* overflow-y: scroll; */
+  height: 100vh;
+  background-color: rgb(0, 0, 0);
+  border: 2px solid rgb(250, 205, 5);
+  scroll-snap-type: y mandatory;
+  /* overflow: scroll; */
+  /* height: 100%; */
+}
+
+/* --------------NavBar section--------------*/
+
+.navbar {
+  position: fixed;
+  top: 0px;
+  padding: 1.225rem 1rem 0.8rem 1rem;
+
+  color: var(--clr-main--);
+  font-size: var(--fs-50--);
+  z-index: 1;
+}
+
+.nav-wrap {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-gap: 10px;
+  justify-content: space-between;
+  justify-items: end;
+  align-content: center;
+  width: 97vw;
+  /* height: 0px; */
+  /* padding: 1.225rem 1rem 0.8rem 1rem; */
+}
+
+.navlist {
+  display: flex;
+  padding-right: 1em;
+  font-family: var(--ff-neue--);
+  font-weight: 200;
+  font-size: var(--fs-100--);
+}
+.logo {
+  justify-self: start;
+  align-self: center;
+  display: flex;
+}
+
+.logo-name {
+  font-family: var(--ff-migra--);
+  font-weight: 200;
+  color: var(--clr-accent--);
+  width: fit-content;
+}
+.logo-name a {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.nav-lable {
+  justify-self: start;
+  /* align-self: flex-end; */
+  /* padding: 0 0 0.2em 1em; */
+  /* width: 200px; */
+  align-self: flex-end;
+  padding-left: 1rem;
+}
+@media (max-width: 652px) {
+  .nav-lable {
+    display: none;
+  }
+}
+
+.navlist {
+  font-family: var(--ff-neue--);
+}
+.navlist li a {
+  color: var(--clr-accent--);
+  text-decoration: none;
+}
+
+.progressbar-wrap {
+  height: 2px;
+  width: 97%;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin-left: 1.5%;
+  margin-right: 1.5%;
+}
+
+.progressbar {
+  height: 2px;
+  /* width: 100%; */
+  /* background-color: aliceblue; */
+}
+
+/*-------------bghero and main section------------*/
+@keyframes bganimation {
+  0% {
+    clip-path: polygon(47.2% 22%, 56% 58%, 47.6% 94%, 38% 58%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+.hero {
+  width: 100%;
+  height: 100vh;
+  z-index: -100;
+  background-image: url(./images/herobg.webp);
+  animation: bganimation 1.5s ease-out;
+  background-size: cover;
+  /* position: relative; */
+  /* top: 0; */
+}
+
+#main {
+  scroll-snap-align: start;
+}
+
+.main-wraper {
+  display: grid;
+  position: absolute;
+  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(180px, 1fr));
+  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-areas:
+    "text date"
+    "text ."
+    "content content";
+  padding-top: 8em;
+  padding-bottom: 5em;
+  height: 100%;
+  margin-top: -100vh;
+  scroll-snap-align: start;
+}
+
+.avilable-date {
+  grid-area: date;
+  margin-top: 80px;
+  display: none;
+}
+
+.text {
+  grid-area: text;
+  display: grid;
+  margin-top: 85px;
+  padding-left: 2em;
+  grid-template-rows: 1fr 1.2fr 1.2fr;
+  align-content: center;
+  /* justify-content: center; */
+  font-family: var(--ff-neue--);
+  color: var(--clr-main--);
+}
+
+.top-lable {
+  font-family: var(--ff-migra--);
+  font-size: var(--fs-300--);
+  color: var(--clr-accent-lite--);
+  align-self: center;
+}
+
+.lable {
+  font-size: 5em;
+  font-family: var(--ff-tusker--);
+  line-height: -0.1rem;
+}
+
+.text span:nth-child(2) {
+  align-self: flex-end;
+}
+
+.content-wrap {
+  grid-area: content;
+  display: grid;
+  grid-template-rows: fit-content(1fr) fit-content(200px) fit-content(1fr);
+  grid-template-areas:
+    "topline topline"
+    "content content"
+    ". button";
+
+  color: var(--clr-main--);
+  font-family: var(--ff-neue--);
+  font-size: var(--fs-100--);
+}
+
+.topline {
+  grid-area: topline;
+  margin-right: 2rem;
+  margin-bottom: 0;
+  padding-bottom: 0.1em;
+  justify-self: end;
+  align-self: flex-end;
+  height: fit-content;
+  /* position: relative; */
+}
+
+.content {
+  grid-area: content;
+  margin: 0 2rem 0 2rem;
+  font-size: var(--fs-100--);
+  /* margin-top: -2rem; */
+}
+
+.contact-button {
+  grid-area: button;
+  margin-right: 1.5rem;
+  height: 2em;
+}
+
+/* -------------------(2nd section)intro section----------------- */
+#intro-wrap {
+  height: 105vh;
+  width: 100%;
+  background-color: black;
+  /* display: inline-block; */
+  scroll-snap-align: start;
+  /* margin-top: -100vh; */
+}
+
+#intro {
+  display: grid;
+  grid-template-rows: fit-content(4em) fit-content(4em) 10fr;
+  grid-template-areas:
+    "lable lable lable"
+    "intro-content intro-content animated-logo"
+    "intro-content intro-content animated-logo";
+  gap: 10px;
+  padding-top: 7rem;
+  padding-left: 3rem;
+  padding-right: 1.5rem;
+  width: 100%;
+  /* height: 100vh; */
+  background-color: black;
+  /* scroll-snap-align: start; */
+  height: fit-content;
+
+  color: aliceblue;
+}
+
+@media (max-width: 611px) {
+  .animated-logo {
+    display: none;
+  }
+}
+
+.intro-text {
+  grid-area: lable;
+  display: grid;
+  width: fit-content;
+  margin-left: 1rem;
+  color: var(--clr-accent--);
+  font-size: var(--fs-100--);
+  padding-bottom: 2em;
+}
+@media (max-width: 1199px) {
+  h2 {
+    font-size: 1.625rem;
+  }
+}
+
+.intro-lable {
+  font-family: var(--ff-tusker--);
+  font-size: var(--fs-300--);
+  color: var(--clr-accent--);
+  padding: 0;
+  font-size: 3.5rem;
+  height: fit-content;
+
+  /* bottom: -1rem; */
+}
+.intro-side-text {
+  border: 1px solid red;
+  justify-self: end;
+  color: var(--clr-accent-lite--);
+  font-size: 16px;
+  line-height: 16px;
+  margin-top: -12px;
+}
+
+.intro-content {
+  grid-area: intro-content;
+  display: grid;
+  grid-template-areas:
+    ". topline-lable"
+    "content content";
+}
+
+.introanimatedlogo {
+  grid-area: animated-logo;
+}
+.topline-text {
+  /* position: relative; */
+  justify-self: end;
+  align-self: flex-end;
+
+  /* margin-right: 2rem; */
+  grid-area: topline-lable;
+}
+
+/* ----------------(3rd)projects section--------------- */
+
+#cases {
+  font-size: large;
+  padding: 5rem 2rem 0rem 2rem;
+  width: 100%;
+  border: 2px solid green;
+  background-color: black;
+  scroll-snap-align: start;
+}
+
+.cases-wraper {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(180px, 1fr));
+  padding: 2rem 0rem 1rem 0rem;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+  color: aliceblue;
+}
+
+.intro {
+  background-color: black;
+}
+
+.project-img {
+  width: 100%;
+}
+
+@media (max-width: 596px) {
+  .cases-wraper {
+    grid-template-columns: 1fr;
+  }
+  .project-lable {
+    display: none;
+  }
+}
+
+/*-------------Let's connect section--------------*/
+#lets-connect {
+  width: 100%;
+  height: 100vh;
+  padding: 4rem 1rem 0 1rem;
+  /* display: grid; */
+  grid-template-areas:
+    "text ."
+    "inqury inqury";
+  border: 1px solid red;
+  scroll-snap-align: start;
+}
+
+.text-connect {
+  grid-area: text;
+  width: fit-content;
+}
+
+.lable-connect {
+  font-size: var(--fs-300--);
+}
+
+.side-lable {
+  margin-top: -0.3rem;
+  margin-bottom: 1rem;
+}
+
+.connect-button {
+  grid-area: connect-button;
+}
+
+.inqury {
+  grid-area: inqury;
+  display: grid;
+  margin-top: 6rem;
+}
+
+/*---------------------------------------------------*/
+
+.logo-name {
+  color: aliceblue;
+}
